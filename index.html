@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="wrapper__container">
+        <!-- sidebar -->
+        <div class="sidebar">
+          <img
+            style="height: 70px; margin-bottom: 7rem; object-fit: contain"
+            src="./logo.png"
+            alt=""
+          />
+          <div class="sidebar__body">
+            <h5 >
+              Welcome User_name
+            </h5>
+            <h5 >
+              Home
+            </h5>
+            <h5 >
+              Overwatch
+            </h5>
+            <h5 >
+              Members
+            </h5>
+            <h5 >
+              Live alert
+            </h5>
+            <h5 >
+              Logout
+            </h5>
+          </div>
+        </div>
+
+        <!-- main -->
+        <div class="main">
+          <div class="main__header">
+            <input class="main__input" type="text" placeholder="Search" />
+            <div>
+              <img
+                style="height: 50px"
+                src="https://static.thenounproject.com/png/125745-200.png"
+                alt=""
+              />
+              <img
+                style="height: 50px"
+                src="http://assets.stickpng.com/images/588a64f5d06f6719692a2d13.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="avatar">
+              <img
+                class="avatar__image animate__animated animate__flash animate__delay-1s"
+                src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"
+                alt=""
+              />
+              <div class="info">
+                <h5>Name: username</h5>
+                <h5>
+                  Status: <span style="color: rgb(38, 209, 38)">online</span>
+                </h5>
+                <h5>Blood: <span style="color: red">A+</span></h5>
+                <h5>Height: 5inch</h5>
+                <h5>Weight: 60kg</h5>
+              </div>
+            </div>
+            <div class="calendar">
+              <div class="days">
+                <p>Mon</p>
+                <p>Tue</p>
+                <p>Wed</p>
+                <p>Thur</p>
+                <p>Fri</p>
+                <p>Sat</p>
+                <p>Sun</p>
+              </div>
+              <div class="dates">
+                <p>01</p>
+                <p>02</p>
+                <p>03</p>
+                <p>04</p>
+                <p>05</p>
+                <p>06</p>
+                <p>07</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="chart__container animate__animated animate__fadeIn">
+              <canvas id="Chart1"></canvas>
+            </div>
+            <div class="chart__container animate__animated animate__fadeIn">
+              <canvas id="Chart2"></canvas>
+            </div>
+            <div class="chart__container animate__animated animate__fadeIn">
+              <canvas id="Chart3"></canvas>
+            </div>
+            <div class="chart__container animate__animated animate__fadeIn">
+              <canvas height="100px" id="Chart4"></canvas>
+            </div>
+            <div class="chart__container animate__animated animate__fadeIn">
+              <canvas id="Chart5"></canvas>
+            </div>
+            <div class="chart__container animate__animated animate__fadeIn">
+              <div id="googleMap" style="width: 100%; height: 300px"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <canvas id="myChart"></canvas> -->
+      </div>
+    </div>
+    <script>
+      function myMap() {
+        var mapProp = {
+          center: new google.maps.LatLng(51.508742, -0.12085),
+          zoom: 5,
+        };
+        var map = new google.maps.Map(
+          document.getElementById("googleMap"),
+          mapProp
+        );
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3ko9xgKzxJcUE81Xsvxpxlw9WygCRJc4&callback=myMap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.0/dist/chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("Chart1");
+      var myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "Heart rate",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("Chart2");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Monday", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
+          datasets: [
+            {
+              label: "Temp",
+              data: [
+                [30, 35],
+                [2, 10],
+                [1, 3],
+                [4, 1],
+                [4, 8],
+                [20, 3],
+                [5, 12],
+              ],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("Chart3");
+      var myChart = new Chart(ctx, {
+        type: "bubble",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "Distance",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("Chart4");
+      var myChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Blood Pressure"],
+          datasets: [
+            {
+              label: "Blood pressure",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("Chart5");
+      var myChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "Steps",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("Chart5");
+      var myChart = new Chart(ctx, {
+        type: "radar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "Steps",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.wrapper__container {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+}
+.sidebar {
+  padding: 10px;
+  margin: 1%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  border-radius: 10px;
+  height: 97%;
+  background-color: #163fa0;
+  border: 1px solid black;
+  flex: 0.2;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar__body h5 {
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  width: 70%;
+  transition: transform 0.2s ease-in-out;
+
+  margin: 0px auto 15px auto;
+}
+.sidebar__body h5:hover {
+  transform: translateX(6px);
+}
+.main {
+  height: 97%;
+  flex: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 1% 0px;
+  overflow-y: scroll;
+  background-color: #f9fafd;
+  border-radius: 10px;
+}
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.info {
+  width: 100%;
+  display: flex;
+}
+.info h5 {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+.main__input {
+  width: 50%;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  border-radius: 99px;
+  border: 1px solid whitesmoke;
+  padding: 10px;
+  outline-width: 0;
+}
+.row {
+  display: flex;
+  padding: 0px 10px;
+  flex-flow: row wrap;
+  margin: 10px 0px;
+}
+.avatar {
+  display: flex;
+  flex: 1 40%;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.avatar__image {
+  height: 70px;
+  cursor: pointer;
+  margin-right: 1%;
+  transition: 0.2s ease-in-out;
+}
+.avatar__image :hover {
+  transform: scale(1.05);
+}
+.calendar {
+  padding: 10px;
+  border: 1px solid lightgray;
+  flex: 1 60%;
+  flex-direction: column;
+}
+.days {
+  display: flex;
+  justify-content: space-between;
+}
+.dates {
+  display: flex;
+  justify-content: space-between;
+}
+.chart__container {
+  padding: 1%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  height: fit-content;
+  margin: 1%;
+  background-color: white;
+  width: 300px;
+  flex: 1 30%;
+  transition: 0.2s ease-in-out;
+}
+.chart__container:hover {
+  transform: scale(1.01);
+}
+@media only screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    flex: 1;
+  }
+  .chart__container {
+    flex: 1 100%;
+  }
+}
